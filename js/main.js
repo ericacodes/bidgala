@@ -1,6 +1,5 @@
 $(document).ready(() => {
-  let imdbIDs = ["hi"];
-  // getImdbIDs();
+  getWatchlist();
 
   $('#search-form').on('submit', (event => {
     let searchInput = $('#search-input').val();
@@ -11,7 +10,7 @@ $(document).ready(() => {
 });
 
 function getSearchResults(searchInput) {
-  axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=d84c5776&s=${searchInput}`)
+  axios.get(`http://www.omdbapi.com/?apikey=d84c5776&s=${searchInput}`)
   .then(response => {
     console.log(response)
     let searchResults = response.data.Search;
@@ -29,7 +28,7 @@ function getSearchResults(searchInput) {
           <p>${result.Year}</p>
         </div>
         <div class="col">
-          <a onclick="addMovie('${result.imdbID}')" class="btn btn-primary">Add</a>
+          <a onclick="addToWatchlist('${result.imdbID}')" class="btn btn-primary">Add</a>
         </div>
       </container>
       `
@@ -41,14 +40,65 @@ function getSearchResults(searchInput) {
   .catch(error => console.log(error));
 }
 
-function getArray() {
+function getWatchlist() {
   let parsedArray = JSON.parse(localStorage.getItem("idArray"));
-  
+  console.log(parsedArray);
+
   if (parsedArray) {
-    array = idArray;
+    let output = '';
+    $.each(parsedArray, (index, id) => {
+      console.log(typeof id)
+      axios.get(`http://www.omdbapi.com/?&apikey=d84c5776&i=${id}`)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    });
   }
+
+  // $.each(parsedArray, (index, result) => {
+  //   output += `
+  //   <container class="row result">
+  //     <div class="col">
+  //       <img
+  //         src="${result.Poster}"
+  //       />
+  //     </div>
+  //     <div class="col">
+  //       <h6>${result.Title}</h6>
+  //       <p>${result.Year}</p>
+  //     </div>
+  //     <div class="col">
+  //       <a onclick="addToWatchlist(${result.imdbID})" class="btn btn-primary">Add</a>
+  //     </div>
+  //   </container>
+  //   `
+  // });
+  // console.log(output);
+  // $('#list').html(output);
+
 }
 
-function addMovie(id) {
-  localStorage.setItem("idArray", JSON.stringify(array));
+function addToWatchlist(id) {
+  console.log(typeof id);
+
+  if (localStorage.getItem("idArray") == null) {
+    localStorage.setItem("idArray", "[]");
+  }
+
+  let parsedArray = JSON.parse(localStorage.getItem("idArray"));
+  parsedArray.push(id);
+  localStorage.setItem("idArray", JSON.stringify(parsedArray));
+
+  getWatchlist();
 }
+
+
+
+
+// addNewEntry
+// readData 
+// saveData 
+// updateEntries
