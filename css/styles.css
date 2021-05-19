@@ -1,0 +1,20 @@
+body {
+  padding: 2vw;
+}
+
+/* #row {
+  display: flex;
+  justify-content: space-evenly;
+} */
+
+.result {
+  height: 150px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+img {
+  margin-top: 12.5px;
+  height: 125px;
+  object-fit: contain;
+}
