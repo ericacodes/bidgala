@@ -31,7 +31,7 @@ function getSearchResults(searchInput) {
           <p>${result.Year}</p>
         </div>
         <div class="col">
-          <button onclick="addToWatchlist('${result.imdbID}', '${result.Poster}', '${name}', '${result.Year}')" class="btn btn-primary" ${disabledOrNot}>Add</button>
+          <button id="${result.imdbID}" onclick="addToWatchlist('${result.imdbID}', '${result.Poster}', '${name}', '${result.Year}'); this.disabled=true;" class="btn btn-primary" ${disabledOrNot}>Add</button>
         </div>
       </container>
       `
@@ -62,7 +62,7 @@ function getWatchlist() {
           <p>${movie.year}</p>
         </div>
         <div class="col">
-          <button onclick="removeFromWatchlist(${index})" class="btn btn-primary">Remove</button>
+          <button onclick="removeFromWatchlist(${index}, '${movie.id}')" class="btn btn-primary">Remove</button>
         </div>
       </container>
     `
@@ -73,7 +73,7 @@ function getWatchlist() {
 
 function addToWatchlist(id, poster, title, year) {
   let movieInfo = {
-    poster, title, year
+    id, poster, title, year
   }
 
   if (localStorage.getItem("movieInfoArray") == null) {
@@ -90,7 +90,8 @@ function addToWatchlist(id, poster, title, year) {
   getWatchlist();
 }
 
-function removeFromWatchlist(index) {
+function removeFromWatchlist(index, id) {
+  $(`#${id}`).removeAttr("disabled");
   let parsedInfo = JSON.parse(localStorage.getItem("movieInfoArray"));
   let parsedId = JSON.parse(localStorage.getItem("movieIdArray"));
   parsedInfo.splice(index, 1);
