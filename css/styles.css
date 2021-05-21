@@ -1,7 +1,54 @@
 body {
+  background-color: black;
+  color: white;
   padding: 2vw;
 }
 
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navbar-full {
+  display: flex;
+  align-items: flex-end;
+  color: white;
+}
+
+#navbar-part {
+  font-weight: lighter;
+  font-size: 16pt;
+  animation: slideIn 1s ease-in-out;
+}
+
+#website {
+  background-color: white;
+  color: black;
+  font-size: 20pt;
+  text-align: center;
+  padding: 0pt 9pt;
+  border: none;
+  border-radius: 5px;
+  animation: SlideIn 1s ease-in;
+}
+
+#website:hover {
+  background-color: black;
+  color: white;
+  font-size: 0;
+  padding: 0;
+  width: 150pt;
+  text-align: right;
+}
+
+#website:hover::after {
+  content: attr(data-hover);
+  font-size: 8pt;
+}
 /* #row {
   display: flex;
   justify-content: space-evenly;
@@ -9,7 +56,7 @@ body {
 
 .result {
   height: 150px;
-  border: 1px solid #000000;
+  border: 1px solid white;
   border-radius: 10px;
 }
 
@@ -17,4 +64,25 @@ img {
   margin-top: 12.5px;
   height: 125px;
   object-fit: contain;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: skewX(45deg) translateX(-500px);
+  }
+  70% {
+    transform: skewX(-30deg) translateX(5px);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes websiteSlideIn {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

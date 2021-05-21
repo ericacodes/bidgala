@@ -6,7 +6,6 @@ $(document).ready(() => {
     getSearchResults(searchInput);
     event.preventDefault();
   }));
-
 });
 
 function getSearchResults(searchInput) {
@@ -35,7 +34,6 @@ function getSearchResults(searchInput) {
         </div>
       </container>
       `
-      
     });
 
     console.log(output);
