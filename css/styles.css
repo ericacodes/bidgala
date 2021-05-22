@@ -4,10 +4,7 @@ body {
   padding: 2vw;
 }
 
-a {
-  text-decoration: none;
-}
-
+/* title */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -17,6 +14,7 @@ a {
   display: flex;
   align-items: flex-end;
   color: white;
+  text-decoration: none;
 }
 
 #navbar-part {
@@ -25,8 +23,22 @@ a {
   animation: slideIn 1s ease-in-out;
 }
 
+@keyframes slideIn {
+  0% {
+    transform: skewX(45deg) translateX(-500px);
+  }
+  70% {
+    transform: skewX(-30deg) translateX(5px);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+/* bidgala */
 #website {
   overflow: hidden;
+  text-decoration: none;
 }
 
 #website #before {
@@ -49,34 +61,8 @@ a {
 
 #website:hover #after {
   display: block;
-  text-decoration: none;
   color: white;
   animation: websiteSlideIn 0.5s ease-in-out;
-}
-
-.result {
-  height: 150px;
-  border: 1px solid white;
-  border-radius: 10px;
-  /* margin: 1vw; */
-}
-
-img {
-  margin-top: 12.5px;
-  height: 125px;
-  object-fit: contain;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: skewX(45deg) translateX(-500px);
-  }
-  70% {
-    transform: skewX(-30deg) translateX(5px);
-  }
-  100% {
-    transform: skewX(0deg);
-  }
 }
 
 @keyframes websiteSlideIn {
@@ -88,26 +74,42 @@ img {
   }
 }
 
-#film {
-  position: fixed;
-  bottom: -50px;
-  right: -50px;
-  transform: rotate(-15deg);
-  height: 25%;
+/* search */
+#search-bar {
+  margin: 2vw 0;
 }
 
-#search-bar {
-  margin: 2vw 0 4vw;
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  width: 80%;
+  border: 3px solid white;
+  border-radius: 10px;
+  margin: 1vw auto;
+  padding: 0 1vw;
+}
+
+.result-inner {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.inner {
+  padding-left: 4vw;
+}
+
+img {
+  height: 125px;
+  object-fit: contain;
 }
 
 .fancy {
   text-align: center;
   font-family: "Monoton", cursive;
-  margin-bottom: 2vw;
   font-size: 20pt;
-}
-
-#watchlist {
   padding: 2vw;
 }
 
@@ -118,4 +120,27 @@ img {
 
 .year {
   font-family: "PT Serif", serif;
+}
+
+#film {
+  position: fixed;
+  bottom: -50px;
+  right: -50px;
+  transform: rotate(-15deg);
+  height: 25%;
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  width: 100pt;
+  height: 50pt;
+  background: url(../assets/ticket.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.btn:hover {
+  font-size: 150%;
+  color: white;
 }

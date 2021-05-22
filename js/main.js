@@ -19,18 +19,20 @@ function getSearchResults(searchInput) {
       const disabledOrNot = watchlistId.includes(result.imdbID) ? 'disabled' : '';
 
       output += `
-      <container class="row result">
-        <div class="col">
-          <img
-            src="${result.Poster}"
-          />
+      <container class="result">
+        <div class="result-inner">
+          <div>
+            <img
+              src="${result.Poster}"
+            />
+          </div>
+          <div class="inner">
+            <h6 class="title">${result.Title}</h6>
+            <p class="year">${result.Year}</p>
+          </div>
         </div>
-        <div class="col">
-          <h6 class="title">${result.Title}</h6>
-          <p class="year">${result.Year}</p>
-        </div>
-        <div class="col">
-          <button id="${result.imdbID}" onclick="addToWatchlist('${result.imdbID}', '${result.Poster}', '${name}', '${result.Year}'); this.disabled=true;" class="btn btn-primary" ${disabledOrNot}>Add</button>
+        <div>
+          <button id="${result.imdbID}" onclick="addToWatchlist('${result.imdbID}', '${result.Poster}', '${name}', '${result.Year}'); this.disabled=true;" class="btn" ${disabledOrNot}>Add</button>
         </div>
       </container>
       `
@@ -49,18 +51,20 @@ function getWatchlist() {
     let output = '';
     $.each(parsedInfo, (index, movie) => {
       output += `
-      <container class="row result">
-        <div class="col">
-          <img
-            src="${movie.poster}"
-          />
+      <container class="result">
+        <div class="result-inner">
+          <div>
+            <img
+              src="${movie.poster}"
+            />
+          </div>
+          <div class="inner">
+            <h6 class="title">${movie.title}</h6>
+            <p class="year">${movie.year}</p>
+          </div>
         </div>
-        <div class="col">
-          <h6 class="title">${movie.title}</h6>
-          <p class="year">${movie.year}</p>
-        </div>
-        <div class="col">
-          <button onclick="removeFromWatchlist(${index}, '${movie.id}')" class="btn btn-primary">Remove</button>
+        <div>
+          <button onclick="removeFromWatchlist(${index}, '${movie.id}')" class="btn">Remove</button>
         </div>
       </container>
     `
