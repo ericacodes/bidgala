@@ -26,8 +26,8 @@ function getSearchResults(searchInput) {
           />
         </div>
         <div class="col">
-          <h6>${result.Title}</h6>
-          <p>${result.Year}</p>
+          <h6 class="title">${result.Title}</h6>
+          <p class="year">${result.Year}</p>
         </div>
         <div class="col">
           <button id="${result.imdbID}" onclick="addToWatchlist('${result.imdbID}', '${result.Poster}', '${name}', '${result.Year}'); this.disabled=true;" class="btn btn-primary" ${disabledOrNot}>Add</button>
@@ -56,8 +56,8 @@ function getWatchlist() {
           />
         </div>
         <div class="col">
-          <h6>${movie.title}</h6>
-          <p>${movie.year}</p>
+          <h6 class="title">${movie.title}</h6>
+          <p class="year">${movie.year}</p>
         </div>
         <div class="col">
           <button onclick="removeFromWatchlist(${index}, '${movie.id}')" class="btn btn-primary">Remove</button>

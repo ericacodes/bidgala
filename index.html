@@ -14,8 +14,12 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css" />
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=PT+Serif&display=swap"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/d18c482918.js"
@@ -30,12 +34,12 @@
         <h1>B I D G A L A</h1>
         <div id="navbar-part">Movie Watchlist</div>
       </a>
-      <a
-        id="website"
-        data-hover="Go to Bidgala website"
-        href="https://bidgala.com/"
-        >B</a
-      >
+      <a id="website" href="https://bidgala.com/">
+        <span id="before">B</span
+        ><span id="after"
+          >Bidgala Home <i class="fas fa-chevron-right"></i
+        ></span>
+      </a>
     </nav>
     <!-- Search Bar -->
     <section id="search-bar">
@@ -52,16 +56,17 @@
     <div class="row">
       <!-- Search Results -->
       <section id="search-results" class="col">
-        <h5>Search Results</h5>
+        <h5 class="fancy">RESULTS</h5>
         <div id="output"></div>
       </section>
 
       <!-- Watchlist -->
       <section id="watchlist" class="col">
-        <h5>Watch List</h5>
+        <h5 class="fancy">WATCHLIST</h5>
         <div id="list"></div>
       </section>
     </div>
+    <img id="film" src="assets/film.svg" />
 
     <!-- Bootstrap Bundle with Popper  -->
     <script

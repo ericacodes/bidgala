@@ -26,38 +26,39 @@ a {
 }
 
 #website {
+  overflow: hidden;
+}
+
+#website #before {
   background-color: white;
   color: black;
   font-size: 20pt;
   text-align: center;
-  padding: 0pt 9pt;
+  padding: 3pt 9pt;
   border: none;
   border-radius: 5px;
-  animation: SlideIn 1s ease-in;
 }
 
-#website:hover {
-  background-color: black;
+#website #after {
+  display: none;
+}
+
+#website:hover #before {
+  display: none;
+}
+
+#website:hover #after {
+  display: block;
+  text-decoration: none;
   color: white;
-  font-size: 0;
-  padding: 0;
-  width: 150pt;
-  text-align: right;
+  animation: websiteSlideIn 0.5s ease-in-out;
 }
-
-#website:hover::after {
-  content: attr(data-hover);
-  font-size: 8pt;
-}
-/* #row {
-  display: flex;
-  justify-content: space-evenly;
-} */
 
 .result {
   height: 150px;
   border: 1px solid white;
   border-radius: 10px;
+  /* margin: 1vw; */
 }
 
 img {
@@ -80,9 +81,41 @@ img {
 
 @keyframes websiteSlideIn {
   0% {
-    transform: translateX(-300px);
+    transform: translateX(150px);
   }
   100% {
     transform: translateX(0);
   }
+}
+
+#film {
+  position: fixed;
+  bottom: -50px;
+  right: -50px;
+  transform: rotate(-15deg);
+  height: 25%;
+}
+
+#search-bar {
+  margin: 2vw 0 4vw;
+}
+
+.fancy {
+  text-align: center;
+  font-family: "Monoton", cursive;
+  margin-bottom: 2vw;
+  font-size: 20pt;
+}
+
+#watchlist {
+  padding: 2vw;
+}
+
+.title {
+  font-family: "PT Serif", serif;
+  font-weight: bold;
+}
+
+.year {
+  font-family: "PT Serif", serif;
 }
