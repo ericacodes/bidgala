@@ -17,7 +17,10 @@ function getSearchResults(searchInput) {
     let watchlistId = JSON.parse(localStorage.getItem("movieIdArray"));
     $.each(searchResults, (index, result) => {
       let name = result.Title.replace("'", "\\'");
-      const disabledOrNot = watchlistId.includes(result.imdbID) ? 'disabled' : '';
+      let disabledOrNot = '';
+      if (watchlistId) {
+        disabledOrNot = watchlistId.includes(result.imdbID) ? 'disabled' : '';
+      }
 
       output += `
       <container class="result">
