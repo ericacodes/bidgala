@@ -9,7 +9,7 @@ $(document).ready(() => {
 });
 
 function getSearchResults(searchInput) {
-  axios.get(`https://www.omdbapi.com/?apikey=d84c5776&s=${searchInput}`)
+  axios.get(`https://www.omdbapi.com/?apikey=4de526e3&s=${searchInput}`)
   .then(response => {
     let searchResults = response.data.Search;
     let output = '';
