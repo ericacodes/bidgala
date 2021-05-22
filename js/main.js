@@ -11,7 +11,6 @@ $(document).ready(() => {
 function getSearchResults(searchInput) {
   axios.get(`https://www.omdbapi.com/?apikey=d84c5776&s=${searchInput}`)
   .then(response => {
-    console.log(response);
     let searchResults = response.data.Search;
     let output = '';
     let watchlistId = JSON.parse(localStorage.getItem("movieIdArray"));
