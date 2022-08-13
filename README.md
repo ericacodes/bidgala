@@ -6,5 +6,5 @@ Search for, add and delete movies from your watchlist! Your watchlist data will 
 ## Product
 
 <p>
-
+  <img src="assets/landing.png" alt="drawing" width="200"/>
 </p>
